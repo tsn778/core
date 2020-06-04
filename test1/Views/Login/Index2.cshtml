@@ -1,0 +1,79 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "注册";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+</head>
+<body>
+    <el-container id="box" style="width:30%;height:800px">
+        <el-main>
+            <el-form v-model="user">
+                <el-form-item label="用户名">
+                    <el-input v-model="user.userName" placeholder="请输入用户名"></el-input>
+                </el-form-item>
+                <el-form-item label="邮箱">
+                    <el-input v-model="user.userName" placeholder="请输入邮箱"></el-input>
+                </el-form-item>
+                <el-form-item label="性别">
+                    <el-radio v-model="user.radio" label="boy">男</el-radio>
+                    <el-radio v-model="user.radio" label="gril">女</el-radio>
+                </el-form-item>
+                <el-form-item label="所在城市">
+                    <el-select v-model="user.sity">
+                        <el-option label="北京"></el-option>
+                        <el-option label="上海"></el-option>
+                        <el-option label="南京" value="beijing"></el-option>
+                        <el-option label="深圳" value="beijing"></el-option>
+                        <el-option label="杭州" value="beijing"></el-option>
+                    </el-select>
+                </el-form-item>
+                <el-form-item label="生日">
+                    <el-date-picker v-model="user.date">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="爱好">
+                    <el-checkbox label="足球" name="type"></el-checkbox>
+                    <el-checkbox label="篮球" name="type"></el-checkbox>
+                    <el-checkbox label="网球" name="type"></el-checkbox>
+                    <el-checkbox label="乒乓球" name="type"></el-checkbox>
+                </el-form-item>
+
+                <el-col>
+                    <el-button type="primary">注册</el-button>
+                    <el-button  v-on:click="onButtonClick" >取消</el-button>
+                </el-col>
+
+            </el-form>
+        </el-main>
+    </el-container>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    const zhuce = new Vue({
+        el: '#box',
+        data: {
+            user: {
+                userName: "",
+                email: "",
+                radio: 1,
+                sity: "",
+                date: "",
+                hobby: ""
+            },
+        },
+        methods: {
+            onButtonClick() {
+                window.location = "/Login/Index";
+            }
+        },
+    });
+</script>
+</html>
